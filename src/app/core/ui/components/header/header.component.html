@@ -1,29 +1,27 @@
 <div class="ui-header">
     <h1>
-        <a routerLink="">Angular 7</a>
+        <a routerLink="">Room Service</a>
     </h1>
     <div class="actions">
-        <ul>
-            <li>
-                <a routerLink="">Accueil</a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">Accueil</a>
             </li>
-            <li *ngIf="user">
-                {{user.username}}
-                <ul>
-                    <li *ngIf="user.role === 'admin'">
-                        <a routerLink="/news/admin">Administration</a>
-                    </li>
-                    <li>
-                        <a routerLink="/authentication">Déconnexion</a>
-                    </li>
-                </ul>
-            </li>
-            <li *ngIf="!user">
-                <a routerLink="/authentication">Connexion</a>
+            <div *ngIf="user">
+                <li class="nav-item dropdown">
+                    <button id="dLabel" class="btn btn-link dropdown-toggle" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">{{user.username}}</button>
+                    <div class="dropdown-menu" aria-labelledby="dLabel">
+                        <a class="dropdown-item" routerLink="/users/profile">Profil</a>
+                        <a class="dropdown-item" routerLink="/users/profile/settings">Paramètres</a>
+                        <a class="dropdown-item" routerLink="/authentication">Déconnexion</a>
+                    </div>
+                </li>
+            </div>
+
+            <li class="nav-item" *ngIf="!user">
+                <a class="nav-link" routerLink="/authentication">Connexion</a>
             </li>
         </ul>
-        <div>
-        </div>
-
     </div>
 </div>

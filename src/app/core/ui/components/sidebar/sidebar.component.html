@@ -1,23 +1,54 @@
-<div class="sidebar">
-    <ul class="nav">
+<div class="sidebar" *ngIf="user">
+    <ul class=" nav flex-column">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+            <h6 class="nav-title">Services</h6>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+
+        <li class="nav-item">
+            <a routerLink="/users/admin" class="nav-link">Mes environnements</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" routerLinkActive="active" routerLink="/requests" [routerLinkActiveOptions]="{exact: true}"> <i class="fas fa-pause"></i> Demandes en attentes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-link disabled" routerLink="" tabindex="-1" aria-disabled="true">
+                    <i class="fas fa-digital-tachograph"></i> Monitoring</a>
         </li>
-      </ul>
+        <li class="nav-item">
+            <a class="nav-link disabled" routerLink="" tabindex="-1" aria-disabled="true">
+                    <i class="fas fa-envelope-open"></i> Events</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" routerLink="" tabindex="-1" aria-disabled="true">
+                    <i class="fas fa-file-contract"></i> Logs</a>
+        </li>
+    </ul>
+
+    <ul class=" nav flex-column" *ngIf="user.role === 'admin' || user.role === 'approving'">
+        <li class="nav-item">
+            <h6 class="nav-title">Demandes</h6>
+        </li>
+
+        <li class="nav-item">
+            <a routerLink="/requests" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link"> <i class="fas fa-pause"></i> Demandes en attentes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/requests/processed"> <i class="fas fa-check"></i> Demandes traitées</a>
+        </li>
+    </ul>
+
+    <ul class=" nav flex-column" *ngIf="user.role === 'admin'">
+        <li class="nav-item">
+            <h6 class="nav-title">Administration</h6>
+        </li>
+
+        <li class="nav-item">
+
+            <a routerLink="/users/admin" routerLinkActive="active" class="nav-link"> <i class="fas fa-users"></i>
+                Gestion des utilisateurs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active"  routerLink="/requests/admin"><i class="fas fa-tasks"></i> Gestion des demandes</a>
+        </li>
+    </ul>
 </div>

@@ -1,12 +1,31 @@
 .ui-header {
+    padding-bottom:20px;
+    background: rgb(47,54,64);
+    background: linear-gradient(90deg, rgba(47,54,64,1) 0%, rgba(47,54,64,1) 51%, rgba(19,54,234,1) 100%);
+    padding-top: 10px;
     h1 {
-        width: auto;
         display: inline;
+        padding-left: 10px;
+        a{
+            color: white;
+        }
+        a:hover {
+            text-decoration: none;
+        }
 
     }
     .actions{
         display: inline;
         float: right;
-        margin: 10px;
+        margin: 10px 100px;
+        a, button{
+            color:white;
+        }
+        button {
+            text-transform: capitalize;
+        }
+        div>a{
+            color:black;
+        }
     }
 }
