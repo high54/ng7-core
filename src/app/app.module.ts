@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Routes
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing';
 
 // Components
 import { AppComponent } from './app.component';
@@ -22,7 +22,6 @@ import { AuthModule } from './core/auth/auth.module';
     BrowserModule,
     UiModule,
     AuthModule,
-    NgxSpinnerModule,
     AppRoutingModule
   ],
   providers: [],
